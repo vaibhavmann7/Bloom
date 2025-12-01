@@ -1,0 +1,219 @@
+{
+  "labels": {
+    "`OrderItem`": [
+      {
+        "name": "order_item_id",
+        "type": "Long"
+      },
+      {
+        "name": "shipping_limit_date",
+        "type": "String"
+      },
+      {
+        "name": "price",
+        "type": "Double"
+      },
+      {
+        "name": "freight_value",
+        "type": "Double"
+      }
+    ],
+    "`Customer`": [
+      {
+        "name": "customer_id",
+        "type": "String"
+      },
+      {
+        "name": "customer_unique_id",
+        "type": "String"
+      },
+      {
+        "name": "customer_zip_code_prefix",
+        "type": "Long"
+      },
+      {
+        "name": "customer_city",
+        "type": "String"
+      },
+      {
+        "name": "customer_state",
+        "type": "String"
+      }
+    ],
+    "`Seller`": [
+      {
+        "name": "seller_id",
+        "type": "String"
+      },
+      {
+        "name": "seller_zip_code_prefix",
+        "type": "Long"
+      },
+      {
+        "name": "seller_city",
+        "type": "String"
+      },
+      {
+        "name": "seller_state",
+        "type": "String"
+      }
+    ],
+    "`Product`": [
+      {
+        "name": "product_id",
+        "type": "String"
+      },
+      {
+        "name": "product_category_name",
+        "type": "String"
+      },
+      {
+        "name": "product_weight_g",
+        "type": "Long"
+      },
+      {
+        "name": "product_length_cm",
+        "type": "Long"
+      },
+      {
+        "name": "product_height_cm",
+        "type": "Long"
+      },
+      {
+        "name": "product_width_cm",
+        "type": "Long"
+      }
+    ],
+    "`Payment`": [
+      {
+        "name": "payment_type",
+        "type": "String"
+      },
+      {
+        "name": "payment_installments",
+        "type": "Long"
+      },
+      {
+        "name": "payment_value",
+        "type": "Double"
+      }
+    ],
+    "`Review`": [
+      {
+        "name": "review_id",
+        "type": "String"
+      },
+      {
+        "name": "review_score",
+        "type": "Long"
+      },
+      {
+        "name": "review_creation_date",
+        "type": "String"
+      },
+      {
+        "name": "review_comment_message",
+        "type": "String"
+      },
+      {
+        "name": "review_comment_title",
+        "type": "String"
+      }
+    ],
+    "`GeoLocation`": [
+      {
+        "name": "geolocation_lng",
+        "type": "Double"
+      },
+      {
+        "name": "geolocation_city",
+        "type": "String"
+      },
+      {
+        "name": "geolocation_state",
+        "type": "String"
+      },
+      {
+        "name": "geolocation_zip_code_prefix",
+        "type": "Long"
+      },
+      {
+        "name": "geolocation_lat",
+        "type": "Double"
+      }
+    ],
+    "`Order`": [
+      {
+        "name": "order_id",
+        "type": "String"
+      },
+      {
+        "name": "order_status",
+        "type": "String"
+      },
+      {
+        "name": "order_purchase_timestamp",
+        "type": "String"
+      },
+      {
+        "name": "order_approved_at",
+        "type": "String"
+      },
+      {
+        "name": "order_delivered_customer_date",
+        "type": "String"
+      },
+      {
+        "name": "order_estimated_delivery_date",
+        "type": "String"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "start": "Order",
+      "type": "HAS_PAYMENT",
+      "end": "Payment"
+    },
+    {
+      "start": "Order",
+      "type": "CONTAINS_ITEM",
+      "end": "OrderItem"
+    },
+    {
+      "start": "Order",
+      "type": "HAS_REVIEW",
+      "end": "Review"
+    },
+    {
+      "start": "OrderItem",
+      "type": "OF_PRODUCT",
+      "end": "Product"
+    },
+    {
+      "start": "OrderItem",
+      "type": "SOLD_BY",
+      "end": "Seller"
+    },
+    {
+      "start": "Customer",
+      "type": "PLACED",
+      "end": "Order"
+    },
+    {
+      "start": "Customer",
+      "type": "LOCATED_IN",
+      "end": "GeoLocation"
+    },
+    {
+      "start": "Customer",
+      "type": "BOUGHT",
+      "end": "Product"
+    },
+    {
+      "start": "Seller",
+      "type": "OPERATES_IN",
+      "end": "GeoLocation"
+    }
+  ]
+}

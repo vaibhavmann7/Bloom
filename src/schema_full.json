@@ -1,0 +1,230 @@
+{
+  "nodes": [
+    {
+      "identity": -564,
+      "labels": [
+        "Order"
+      ],
+      "properties": {
+        "name": "Order",
+        "indexes": [],
+        "constraints": [
+          "Constraint( id=3, name='order_id_Order_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:Order {order_id}), ownedIndex=2 )"
+        ]
+      },
+      "elementId": "-564"
+    },
+    {
+      "identity": -569,
+      "labels": [
+        "Payment"
+      ],
+      "properties": {
+        "name": "Payment",
+        "indexes": [],
+        "constraints": [
+          "Constraint( id=13, name='payment_type_Payment_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:Payment {payment_type}), ownedIndex=12 )"
+        ]
+      },
+      "elementId": "-569"
+    },
+    {
+      "identity": -566,
+      "labels": [
+        "Customer"
+      ],
+      "properties": {
+        "name": "Customer",
+        "indexes": [],
+        "constraints": [
+          "Constraint( id=7, name='customer_id_Customer_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:Customer {customer_id}), ownedIndex=6 )"
+        ]
+      },
+      "elementId": "-566"
+    },
+    {
+      "identity": -565,
+      "labels": [
+        "OrderItem"
+      ],
+      "properties": {
+        "name": "OrderItem",
+        "indexes": [
+          "order_id"
+        ],
+        "constraints": [
+          "Constraint( id=5, name='order_item_id_OrderItem_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:OrderItem {order_item_id}), ownedIndex=4 )"
+        ]
+      },
+      "elementId": "-565"
+    },
+    {
+      "identity": -568,
+      "labels": [
+        "Product"
+      ],
+      "properties": {
+        "name": "Product",
+        "indexes": [
+          "product_category_name"
+        ],
+        "constraints": [
+          "Constraint( id=11, name='product_id_Product_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:Product {product_id}), ownedIndex=10 )"
+        ]
+      },
+      "elementId": "-568"
+    },
+    {
+      "identity": -567,
+      "labels": [
+        "Seller"
+      ],
+      "properties": {
+        "name": "Seller",
+        "indexes": [],
+        "constraints": [
+          "Constraint( id=9, name='seller_id_Seller_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:Seller {seller_id}), ownedIndex=8 )"
+        ]
+      },
+      "elementId": "-567"
+    },
+    {
+      "identity": -570,
+      "labels": [
+        "Review"
+      ],
+      "properties": {
+        "name": "Review",
+        "indexes": [],
+        "constraints": [
+          "Constraint( id=15, name='review_id_Review_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:Review {review_id}), ownedIndex=14 )"
+        ]
+      },
+      "elementId": "-570"
+    },
+    {
+      "identity": -571,
+      "labels": [
+        "GeoLocation"
+      ],
+      "properties": {
+        "name": "GeoLocation",
+        "indexes": [],
+        "constraints": [
+          "Constraint( id=17, name='geolocation_zip_code_prefix_GeoLocation_uniq', type='NODE PROPERTY UNIQUENESS', schema=(:GeoLocation {geolocation_zip_code_prefix}), ownedIndex=16 )"
+        ]
+      },
+      "elementId": "-571"
+    }
+  ],
+  "relationships": [
+    {
+      "identity": -625,
+      "start": -565,
+      "end": -567,
+      "type": "SOLD_BY",
+      "properties": {
+        "name": "SOLD_BY"
+      },
+      "elementId": "-625",
+      "startNodeElementId": "-565",
+      "endNodeElementId": "-567"
+    },
+    {
+      "identity": -628,
+      "start": -566,
+      "end": -571,
+      "type": "LOCATED_IN",
+      "properties": {
+        "name": "LOCATED_IN"
+      },
+      "elementId": "-628",
+      "startNodeElementId": "-566",
+      "endNodeElementId": "-571"
+    },
+    {
+      "identity": -627,
+      "start": -564,
+      "end": -570,
+      "type": "HAS_REVIEW",
+      "properties": {
+        "name": "HAS_REVIEW"
+      },
+      "elementId": "-627",
+      "startNodeElementId": "-564",
+      "endNodeElementId": "-570"
+    },
+    {
+      "identity": -630,
+      "start": -566,
+      "end": -568,
+      "type": "BOUGHT",
+      "properties": {
+        "name": "BOUGHT"
+      },
+      "elementId": "-630",
+      "startNodeElementId": "-566",
+      "endNodeElementId": "-568"
+    },
+    {
+      "identity": -622,
+      "start": -566,
+      "end": -564,
+      "type": "PLACED",
+      "properties": {
+        "name": "PLACED"
+      },
+      "elementId": "-622",
+      "startNodeElementId": "-566",
+      "endNodeElementId": "-564"
+    },
+    {
+      "identity": -623,
+      "start": -564,
+      "end": -565,
+      "type": "CONTAINS_ITEM",
+      "properties": {
+        "name": "CONTAINS_ITEM"
+      },
+      "elementId": "-623",
+      "startNodeElementId": "-564",
+      "endNodeElementId": "-565"
+    },
+    {
+      "identity": -629,
+      "start": -567,
+      "end": -571,
+      "type": "OPERATES_IN",
+      "properties": {
+        "name": "OPERATES_IN"
+      },
+      "elementId": "-629",
+      "startNodeElementId": "-567",
+      "endNodeElementId": "-571"
+    },
+    {
+      "identity": -624,
+      "start": -565,
+      "end": -568,
+      "type": "OF_PRODUCT",
+      "properties": {
+        "name": "OF_PRODUCT"
+      },
+      "elementId": "-624",
+      "startNodeElementId": "-565",
+      "endNodeElementId": "-568"
+    },
+    {
+      "identity": -626,
+      "start": -564,
+      "end": -569,
+      "type": "HAS_PAYMENT",
+      "properties": {
+        "name": "HAS_PAYMENT"
+      },
+      "elementId": "-626",
+      "startNodeElementId": "-564",
+      "endNodeElementId": "-569"
+    }
+  ]
+}
